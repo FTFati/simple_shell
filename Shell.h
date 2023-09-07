@@ -9,9 +9,10 @@
 
 char *_strcpy(char *dest, char *src);
 void execute(char **av);
-void shell_cd(char **args)
-int shell_env(void)
-void shell_exit(char **args)
-int shell_setenv(char **args)
+void shell_cd(char **args);
+int shell_env(void);
+void shell_exit(char **args);
+int shell_setenv(char **args);
+int shell_unsetenv(char **args);
 
 #endif
