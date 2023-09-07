@@ -42,8 +42,9 @@ int main(__attribute__((unused)) int ac, char **av)
 			buff = strtok(NULL, delim);
 		}
 		av[i] = NULL;
-		printf("%s\n", line);
-		free(line);
+		execute(av);
 	}
+	free(line);
+	free(line2);
 	return (0);
 }

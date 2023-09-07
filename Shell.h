@@ -8,5 +8,6 @@
 #define delim " \t\r\n\a\""
 
 char *_strcpy(char *dest, char *src);
+void execute(char **av);
 
 #endif
