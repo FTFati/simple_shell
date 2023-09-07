@@ -15,5 +15,6 @@ void shell_exit(char **args);
 int shell_setenv(char **args);
 int shell_unsetenv(char **args);
 void _puterror(char *str);
+char *get_path(char **env);
 
 #endif
