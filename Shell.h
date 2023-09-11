@@ -9,5 +9,6 @@
 
 char *_strcpy(char *dest, char *src);
 void execute(char **av);
+ssize_t _getline(char **ln, size_t *bufsize, int fd)
 
 #endif
