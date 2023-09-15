@@ -1,17 +1,36 @@
 #include "Shell.h"
 /**
  * execute - function that execute command
- * @av: argument
+ * @av: array of command arguments
  * Return: Void
  */
-void execute(char **av)
+void execute(char *cmd)
 {
 	char *command = NULL;
+	char *buff[10];
+	pid_t pid;
+	int status;
 
-	if (av)
+	if (cmd)
 	{
-		command = av[0];
-		if (execve(command, av, NULL) == -1)
-			perror("Error: execve");
+		pid = fork();
+		command = cmd;
+		if (pid == -1)
+		{
+			perror("Error: fork");
+			exit(EXIT_FAILURE);
+		}
+		if (pid == 0)
+		{
+			buff[0] = command;
+			buff[1] = NULL;
+			if (execve(buff[0], buff, NULL) == -1)
+			{
+				perror("Error: execve");
+				exit(EXIT_FAILURE);
+			}
+		}
+		else
+			waitpid(pid, &status, 0);
 	}
 }
