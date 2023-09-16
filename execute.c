@@ -1,7 +1,7 @@
 #include "Shell.h"
 /**
  * execute - function that execute command
- * @av: array of command arguments
+ * @cmd: command argument
  * Return: Void
  */
 void execute(char *cmd)

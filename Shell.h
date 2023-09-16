@@ -13,6 +13,6 @@
 
 char *_strcpy(char *dest, char *src);
 void execute(char *cmd);
-/*ssize_t _getline(char **ln, size_t *bufsize, int fd)*/
+ssize_t _getline(char **line, size_t *buffsize, int fd);
 
 #endif
