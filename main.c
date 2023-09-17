@@ -5,11 +5,13 @@
  * @av: array of arguments
  * Return: 0
  */
-int main(__attribute__((unused)) int ac, __attribute__((unused)) char **av)
+int main(__attribute__((unused)) int ac, char **av)
 {
 	char *line;
 	size_t n = 0;
 	ssize_t n_cmd;
+	char *token;
+	int i = 0;
 
 	while (1)
 	{
@@ -19,7 +21,15 @@ int main(__attribute__((unused)) int ac, __attribute__((unused)) char **av)
 			return (-1);
 		if (line[n_cmd - 1] == '\n')
 			line[n_cmd - 1] = '\0';
-		execute(line);
+		token = strtok(line, "");
+		for (i = 0; token != NULL; i++)
+		{
+			av[i] = token;
+			token = strtok(NULL, "");
+			i++;
+		}
+		av[i] = NULL;
+		execute(av);
 	}
 	free(line);
 	return (0);

@@ -12,7 +12,7 @@
 #define MAX_TOKENS 100
 
 char *_strcpy(char *dest, char *src);
-void execute(char *cmd);
-ssize_t _getline(char **line, size_t *buffsize, int fd);
+void execute(char **cmd);
+ssize_t _getline(char **line, size_t *buffsize, FILE *stream);
 
 #endif

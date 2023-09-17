@@ -4,17 +4,16 @@
  * @cmd: command argument
  * Return: Void
  */
-void execute(char *cmd)
+void execute(char **cmd)
 {
 	char *command = NULL;
-	char *buff[10];
 	pid_t pid;
 	int status;
 
 	if (cmd)
 	{
 		pid = fork();
-		command = cmd;
+		command = cmd[0];
 		if (pid == -1)
 		{
 			perror("Error: fork");
@@ -22,9 +21,7 @@ void execute(char *cmd)
 		}
 		if (pid == 0)
 		{
-			buff[0] = command;
-			buff[1] = NULL;
-			if (execve(buff[0], buff, NULL) == -1)
+			if (execve(command, cmd, NULL) == -1)
 			{
 				perror("Error: execve");
 				exit(EXIT_FAILURE);
