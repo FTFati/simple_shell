@@ -11,5 +11,7 @@ char *_strcpy(char *dest, char *src);
 void execute(char **av);
 int execute_command(char **agv, char *buf);
 void tokenizes(char *buff, char **tok);
+char *_env(char *n);
+char *get_command(char *cmd);
 
 #endif

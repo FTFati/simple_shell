@@ -3,12 +3,12 @@
 #define READ_SIZE 1024
 
 /**
- * _getline - Gets a line from a file descriptor.
+ *_getline - Gets a line from a file descriptor.
  * @ln: Pointer to store the line.
  * @bufsize: Size of the buffer.
  * @fd: File descriptor.
  *
- * Return: Number of characters read, -1 on failure.
+ * Return: Num of characters read, -1 on failure.
  */
 ssize_t _getline(char **ln, size_t *bufsize, int fd)
 {
