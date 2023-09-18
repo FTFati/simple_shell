@@ -26,5 +26,6 @@ int _env(char **env);
 int cd_shell(char **args);
 char *_getenv(const char *name);
 void _puts(const char *str);
+int _atoi(const char *str);
 
 #endif
