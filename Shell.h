@@ -23,7 +23,6 @@ int _builtin(char **toks, char *buff);
 void exit_shell(char **args);
 int exit_shell(char **args);
 int _env(char **env);
-char *_getenv(const char *name);
 void _puts(const char *str);
 int _atoi(const char *str);
 
