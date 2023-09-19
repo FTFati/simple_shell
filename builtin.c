@@ -18,28 +18,6 @@ int exit_shell(char **args)
 }
 
 /**
- * cd_shell - Change the current directory process
- * @args: Array of arguments
- *
- * Return: Always returns 1
- */
-int cd_shell(char **args)
-{
-	char *dir = args[1];
-
-	if (!dir)
-		dir = _getenv("HOME");
-
-	if (chdir(dir) == -1)
-	{
-		_puterror("cd: can't cd to ");
-		return (1);
-	}
-
-	return (1);
-}
-
-/**
  * _env -prints the current environment
  * @env: array of environment variables
  *
