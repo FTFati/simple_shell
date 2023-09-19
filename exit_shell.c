@@ -1,20 +1,32 @@
 #include "Shell.h"
-
 /**
- * exit_shell - Exit the shell
- * @args: Arguments
- *
- * Return: Nothing
+ * sh_exit - Exit the shell
+ * @toks: token
+ *@buff: buffer
+ * Return: integer
  */
-void exit_shell(char **args)
+int sh_exit(char **toks, char *buff)
 {
-	int status = 0;
+	int counter = 0;
+	int es = 0;
 
-	if (args[1] != NULL)
+	while (toks[counter])
 	{
-		status = _atoi(args[1]);
+		counter++;
 	}
-	free_tokens(args);
-	free_last_input();
-	exit(status);
+	if (counter == 1)
+	{
+	      free_tokens(toks);
+	      free(buff);
+	      exit(0);
+	}
+        if (_atoi(toks[1]) == -1)
+        {
+              fprintf(stderr, "./hsh: 1: exit: Illegal number: %&n", toks[1]);
+              return (2);
+	}
+        es = atoi(toks[1]);
+        free_tokens(toks);
+        free(buff);
+        exit(es);
 }
