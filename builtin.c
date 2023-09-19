@@ -1,34 +1,37 @@
 #include "Shell.h"
 
 /**
- * exit_shell - Exit the shell
- * @args: Array of arguments
- *
- * Return: Always returns 0
+ * _builtin - handles the bultin commands
+ * @toks: token
+ * @buff: buffer
+ * Return: Conditional Statements
  */
-int exit_shell(char **args)
+int _builtin(char **toks, char *buff)
 {
-	int status = 0;
-
-	if (args[1])
-		status = _atoi(args[1]);
-
-	free(args);
-	exit(status);
+	if (_strcmp(toks[0], "env") == 0)
+	{
+		return (env1());
+	}
+	else if (_strcmp(toks[0], "exit") == 0)
+	{
+		return (sh_exit(toks, buff));
+	}
+	else
+	{
+		return (-1);
+	}
 }
-
 /**
- * _env -prints the current environment
- * @env: array of environment variables
- *
+ * env1 - gets the env
  * Return: always returns 0
  */
-int _env(char **env)
+int env1(void)
 {
-	int i;
+	int co;
 
-	for (i = 0; env[i]; i++)
-		_puts(env[i]), _putchar('\n');
-
-	return (0);
+	for (co = 0; environ[co]; co++)
+	{
+		_puts(environ[co]);
+	}
+        return (0);
 }
