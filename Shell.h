@@ -19,6 +19,7 @@ char *_env(char *n);
 char *get_command(char *cmd);
 void execute(char **cmd);
 ssize_t _getline(char **line, size_t *buffsize, FILE *stream);
+int _builtin(char **toks, char *buff);
 void exit_shell(char **args);
 int exit_shell(char **args);
 int _env(char **env);
