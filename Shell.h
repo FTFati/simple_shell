@@ -20,10 +20,9 @@ char *get_command(char *cmd);
 void execute(char **cmd);
 ssize_t _getline(char **line, size_t *buffsize, FILE *stream);
 int _builtin(char **toks, char *buff);
-void exit_shell(char **args);
-int exit_shell(char **args);
+int sh_exit(char **toks, char *buff);
 int _env(char **env);
-char *_getenv(const char *name);
+int _strcmp(char *ss1, char *ss2)
 void _puts(const char *str);
 int _atoi(const char *str);
 
