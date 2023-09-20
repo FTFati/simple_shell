@@ -1,20 +1,18 @@
 #include "Shell.h"
 /**
  * execute - function that execute command
- * @cmd: command argument
+ * @cmd: command
+ * @av: argument
  * Return: Void
  */
-void execute(char *cmd)
+int execute(char **cmd, char **av)
 {
-	char *command[2];
 	pid_t pid;
 	int status;
 
 	if (cmd)
 	{
 		pid = fork();
-		command[0] = cmd;
-		command[1] = NULL;
 		if (pid == -1)
 		{
 			perror("Error: fork");
@@ -22,13 +20,18 @@ void execute(char *cmd)
 		}
 		if (pid == 0)
 		{
-			if (execve(cmd, command, NULL) == -1)
+			if (execve(cmd[0], cmd, environ) == -1)
 			{
-				perror("Error: execve");
+				perror(av[0]);
+				freeBuff(cmd);
 				exit(EXIT_FAILURE);
 			}
 		}
 		else
+		{
 			waitpid(pid, &status, 0);
+			freeBuff(cmd);
+		}
 	}
+	return (WEXITSTATUS(status));
 }
