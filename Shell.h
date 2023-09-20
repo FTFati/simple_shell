@@ -20,6 +20,7 @@ char **tokenCmd(char *line);
 int execute(char **cmd, char **av);
 
 ssize_t _getline(char **line, size_t *buffsize, FILE *stream);
+void Comments(char ***cmd);
 
 void freeBuff(char **buff);
 char *_strcpy(char *dest, char *src);
