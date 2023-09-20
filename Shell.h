@@ -18,5 +18,10 @@ void tokenizes(char *buff, char **tok);
 char *_env(char *n);
 char *get_command(char *cmd);
 ssize_t _getline(char **line, size_t *buffsize, FILE *stream);
+char *get_command(char *cmd);
+int _builtin(char **toks, char *buff);
+int exit_sh(char **toks, char *buff);
+void _puts(char *str);
+int _atoi(char *ptr);
 
 #endif
