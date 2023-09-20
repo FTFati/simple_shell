@@ -3,7 +3,7 @@
  * _getline - Function that gets a line from user/file
  * @line: Pointer to store the line
  * @buffsize: Size of the buffer
- * @steam: File descriptor
+ * @stream: File descriptor
  * Return: Number of characters read, -1 on failure.
  */
 ssize_t _getline(char **line, size_t *buffsize, FILE *stream)
@@ -34,7 +34,7 @@ ssize_t _getline(char **line, size_t *buffsize, FILE *stream)
 			*buffsize *= 2;
 			temp = (char *)realloc(*line, *buffsize);
 			if (temp == NULL)
-				return -1;
+				return (-1);
 			*line = temp;
 		}
 	}
