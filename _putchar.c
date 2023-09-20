@@ -1,10 +1,9 @@
 #include "Shell.h"
 
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * _putchar - Function that writes the char to stdout
+ * @c: char
+ * Return: 1 or -1
  */
 int _putchar(char c)
 {

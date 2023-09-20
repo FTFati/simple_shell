@@ -21,9 +21,8 @@ int execute(char **cmd, char **av);
 ssize_t _getline(char **line, size_t *buffsize, FILE *stream);
 void Comments(char ***cmd);
 
-char *get_command(char *cmd);
-int _builtin(char **toks, char *buff);
-int exit_sh(char **toks, char *buff);
+char *_env(char *args);
+int _exxit_sh(char **toks, char *buff);
 void _puts(char *str);
 int _atoi(char *ptr);
 
@@ -35,6 +34,5 @@ int _strcmp(char *s1, char *s2);
 char *_strdup(const char *str);
 
 int _putchar(char c);
-int env1(void);
 
 #endif

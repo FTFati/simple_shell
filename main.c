@@ -21,9 +21,12 @@ int main(__attribute__((unused)) int ac, char **av)
 			return (status);
 		}
 		cmd = tokenCmd(line);
+		Comments(&cmd);
 		if (cmd == NULL)
 			continue;
 		status = execute(cmd, av);
 	}
+	free(cmd);
+	free(line);
 	return (0);
 }
