@@ -1,22 +1,20 @@
 #include "Shell.h"
 /**
- * exit_sh - exists the shell
+ * exit_sh - Function that exists the shell
  *@toks: tokens
  *@buff: buffer
- * Return: integer
+ * Return: int
  */
 int exit_sh(char **toks, char *buff)
 {
-	int counter = 0;
-	int es = 0;
+	int count = 0;
+	int status = 0;
 
-	while (toks[counter])
+	while (toks[count])
+		count++;
+	if (count == 1)
 	{
-		counter++;
-	}
-	if (counter == 1)
-	{
-		free_tokens(toks);
+		free(toks);
 		free(buff);
 		exit(0);
 	}
@@ -25,8 +23,8 @@ int exit_sh(char **toks, char *buff)
 		fprintf(stderr, "./hsh: 1: exit: Illegal number: %s\n", toks[1]);
 		return (2);
 	}
-	es = atoi(toks[1]);
-	free_tokens(toks);
+	status = atoi(toks[1]);
+	free(toks);
 	free(buff);
-	exit(es);
+	exit(status);
 }

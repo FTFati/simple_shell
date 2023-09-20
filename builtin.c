@@ -1,9 +1,9 @@
 #include "Shell.h"
 /**
- * _builtin - handls the builtin commands
+ * _builtin - Function that handls the builtin commands
  * @toks: tokens
  * @buff: buffer
- * Return: multiple conditions
+ * Return: env
 */
 int _builtin(char **toks, char *buff)
 {
@@ -21,8 +21,8 @@ int _builtin(char **toks, char *buff)
 	}
 }
 /**
- * env1 - gets the env
- * Return: Always 0
+ * env1 - Function that gets the env
+ * Return: 0
  */
 int env1(void)
 {
