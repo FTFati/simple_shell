@@ -19,14 +19,5 @@ char *_env(char *n);
 char *get_command(char *cmd);
 void execute(char **cmd);
 ssize_t _getline(char **line, size_t *buffsize, FILE *stream);
-void exit_shell(char **args);
-int exit_shell(char **args);
-int cd_shell(char **args);
-void cd_shell(char **args);
-int _env(char **env);
-void _puts(const char *str);
-int _atoi(const char *str);
-int _putchar(char c);
-void free_tokens(char **toks);
 
 #endif
