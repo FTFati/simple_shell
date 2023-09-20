@@ -5,22 +5,25 @@
  * @av: array of arguments
  * Return: 0
  */
-int main(__attribute__((unused)) int ac, __attribute__((unused)) char **av)
+int main(__attribute__((unused)) int ac, char **av)
 {
-	char *line;
-	size_t n = 0;
-	ssize_t n_cmd;
+	char *line = NULL;
+	char **cmd = NULL;
+	int status = 0;
 
 	while (1)
 	{
-		write(1, "$ ", 2);
-		n_cmd = getline(&line, &n, stdin);
-		if (n_cmd == -1)
-			return (-1);
-		if (line[n_cmd - 1] == '\n')
-			line[n_cmd - 1] = '\0';
-		execute(line);
+		line = _getCommand();
+		if (line == NULL)
+		{
+			if (isatty(STDIN_FILENO) == 1)
+				write(1, "\n", 1);
+			return (status);
+		}
+		cmd = tokenCmd(line);
+		if (cmd == NULL)
+			continue;
+		status = execute(cmd, av);
 	}
-	free(line);
 	return (0);
 }
