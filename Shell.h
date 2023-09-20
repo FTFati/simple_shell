@@ -12,12 +12,11 @@
 #define MAX_TOKENS 100
 
 char *_strcpy(char *dest, char *src);
-void execute(char **av);
+void execute(char *cmd);
 int execute_command(char **agv, char *buf);
 void tokenizes(char *buff, char **tok);
 char *_env(char *n);
 char *get_command(char *cmd);
-void execute(char **cmd);
 ssize_t _getline(char **line, size_t *buffsize, FILE *stream);
 
 #endif
