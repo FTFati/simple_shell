@@ -20,7 +20,15 @@ char **tokenCmd(char *line);
 int execute(char **cmd, char **av);
 
 ssize_t _getline(char **line, size_t *buffsize, FILE *stream);
+<<<<<<< HEAD
 void Comments(char ***cmd);
+=======
+char *get_command(char *cmd);
+int _builtin(char **toks, char *buff);
+int exit_sh(char **toks, char *buff);
+void _puts(char *str);
+int _atoi(char *ptr);
+>>>>>>> 1d485880bffb3fb4bca853a4fb5fa7fcf289628f
 
 void freeBuff(char **buff);
 char *_strcpy(char *dest, char *src);
@@ -28,5 +36,7 @@ char *_strcat(char *dest, char *src);
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
 char *_strdup(const char *str);
+int _putchar(char c);
+int env1(void);
 
 #endif
