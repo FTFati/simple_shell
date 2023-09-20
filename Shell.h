@@ -26,5 +26,7 @@ void cd_shell(char **args);
 int _env(char **env);
 void _puts(const char *str);
 int _atoi(const char *str);
+int _putchar(char c);
+void free_tokens(char **toks);
 
 #endif
