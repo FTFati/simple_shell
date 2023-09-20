@@ -1,19 +1,4 @@
-#include "Shell.c"
-/**
- * _strcmp - compares two strings
- * @ss1: pointer of first string
- * @ss2: pointer of second string
- * Return: integer
- */
-int _strcmp(char *ss1. char *ss2)
-{
-	while (*ss1 != '\0' && *ss1 == *ss2)
-	{
-		ss1++;
-		ss2++;
-	}
-	return (*(unsigned char *)ss1 - *(unsigned char *)ss2);
-}
+#include "Shell.h"
 
 /**
  * _puts - prints a string

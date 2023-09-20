@@ -1,37 +1,56 @@
 #include "Shell.h"
 
 /**
- * _builtin - handles the bultin commands
- * @toks: token
- * @buff: buffer
- * Return: Conditional Statements
+ * exit_shell - Exit the shell
+ * @args: Array of arguments
+ *
+ * Return: Always returns 0
  */
-int _builtin(char **toks, char *buff)
+int exit_shell(char **args)
 {
-	if (_strcmp(toks[0], "env") == 0)
-	{
-		return (env1());
-	}
-	else if (_strcmp(toks[0], "exit") == 0)
-	{
-		return (sh_exit(toks, buff));
-	}
-	else
-	{
-		return (-1);
-	}
+	int status = 0;
+
+	if (args[1])
+		status = _atoi(args[1]);
+
+	free(args);
+	exit(status);
 }
+
 /**
- * env1 - gets the env
+ * cd_shell - Change the current directory of the process
+ * @args: Array of arguments
+ *
+ * Return: Always returns 1
+ */
+int cd_shell(char **args)
+{
+	char *dir = args[1];
+
+	if (!dir)
+		dir = _getenv("HOME");
+
+	if (chdir(dir) == -1)
+	{
+		_puterror("cd: can't cd to ");
+		return (1);
+	}
+
+	return (1);
+}
+
+/**
+ * _env - prints the current environment
+ * @env: array of environment variables
+ *
  * Return: always returns 0
  */
-int env1(void)
+int _env(char **env)
 {
-	int co;
+	int i;
 
-	for (co = 0; environ[co]; co++)
-	{
-		_puts(environ[co]);
-	}
-        return (0);
+	for (i = 0; env[i]; i++)
+		_puts(env[i]), _putchar('\n');
+
+	return (0);
 }
